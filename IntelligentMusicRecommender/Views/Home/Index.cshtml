@@ -1,0 +1,34 @@
+﻿<form asp-action="Recommend" method="post" class="row g-2 align-items-end" id="recForm">
+    <div class="col-md-4">
+        <label class="form-label">Mood</label>
+        <input name="mood"
+               class="form-control"
+               value="@Context.Request.Query["mood"]"
+               placeholder="happy, focus, gym, party..." />
+    </div>
+
+    <div class="col-md-4">
+        <label class="form-label">Genre</label>
+        <input name="genre"
+               class="form-control"
+               value="@Context.Request.Query["genre"]"
+               placeholder="pop, rock, edm..." />
+    </div>
+
+    <div class="col-md-2">
+        <label class="form-label">Limit</label>
+        <input name="limit" type="number" value="12" min="5" max="50" class="form-control" />
+    </div>
+
+    <div class="col-md-2 d-grid">
+        <button id="goBtn" class="btn btn-primary" type="submit">Recommend</button>
+    </div>
+</form>
+
+<!-- бутон за зареждане на запазените предпочитания -->
+<a class="btn btn-outline-secondary mt-3" asp-controller="Home" asp-action="UseDefaults">
+    Use my defaults
+</a>
+
+<hr />
+<a class="btn btn-outline-secondary" asp-controller="Playlists" asp-action="Index">See Playlists</a>

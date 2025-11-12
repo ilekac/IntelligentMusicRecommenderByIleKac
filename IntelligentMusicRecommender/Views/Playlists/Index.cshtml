@@ -1,0 +1,22 @@
+﻿@model IEnumerable<IntelligentMusicRecommender.Models.Playlist>
+@{
+    ViewData["Title"] = "Playlists";
+}
+<h2>Playlists</h2>
+
+<table class="table">
+    <thead>
+        <tr><th>Name</th><th>Criteria</th><th>Created</th><th></th></tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.Name</td>
+                <td>@p.Criteria</td>
+                <td>@p.CreatedAt.ToLocalTime()</td>
+                <td><a class="btn btn-sm btn-primary" asp-action="Details" asp-route-id="@p.Id">Open</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

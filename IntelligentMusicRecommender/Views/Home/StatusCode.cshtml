@@ -1,0 +1,13 @@
+﻿@model int
+@{
+    ViewData["Title"] = $"Error @Model";
+    var title = Model == 404 ? "Page not found" :
+                Model == 403 ? "Access denied" :
+                "Oops, something went wrong";
+    var desc = Model == 404 ? "We couldn’t find the page you’re looking for." :
+                Model == 403 ? "You don’t have permission to view this page." :
+                "Please try again later.";
+}
+<h1>@title (@Model)</h1>
+<p>@desc</p>
+<a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary">Back to Home</a>
